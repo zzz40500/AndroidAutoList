@@ -16,6 +16,6 @@ repositories {
 /app/build.gradle
 ~~~
 dependencies {
-	        compile 'com.github.zzz40500:AndroidAutoListhttps:0.1'
+	   compile 'com.github.zzz40500:AndroidAutoList:0.1'
 	}
 ~~~
