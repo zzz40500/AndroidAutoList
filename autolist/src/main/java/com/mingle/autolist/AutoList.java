@@ -71,13 +71,13 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
 
             boolean handled = false;
             if (mActionHandler != null) {
-                handled = mActionHandler.beforeHandleAction(o);
+                handled = mActionHandler.beforeHandleAction(autoData);
             }
 
             if (!handled) {
                 switch (autoData.action) {
                     case Add:
-                        addT(autoData);
+                        addT(0,autoData);
                         break;
                     case Delete:
                         deleteT(autoData);
@@ -89,7 +89,9 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
                         break;
                 }
             }
-            mActionHandler.afterHandleAction(o);
+            if (mActionHandler != null) {
+                mActionHandler.afterHandleAction(autoData);
+            }
 
             if (mAdapter != null)
                 mAdapter.notifyDataSetChanged();
@@ -113,20 +115,20 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
 
 
 
-    public interface ActionHandler<T> {
+    public interface ActionHandler<T extends  AutoData> {
         boolean beforeHandleAction(T a);
          void  afterHandleAction(T a);
 
 
     }
 
-    public void setActionHandler(ActionHandler<T> actionHandler) {
+    public void setActionHandler(ActionHandler<AutoData> actionHandler) {
 
         mActionHandler = actionHandler;
     }
 
 
-    private void updateT(AutoData o) {
+    public void updateT(AutoData o) {
 
 
         int index = indexOf(o);
@@ -138,7 +140,7 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
 
     }
 
-    private void deleteT(AutoData o) {
+    public void deleteT(AutoData o) {
 
         int index = indexOf(o);
         if (index != -1) {
@@ -147,10 +149,10 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
 
     }
 
-    private void addT(AutoData o) {
+    public void addT(int addIndex,AutoData o) {
 
         if (!contains(o)) {
-            this.add(0, (T) o);
+            this.add(addIndex, (T) o);
         }
 
     }
