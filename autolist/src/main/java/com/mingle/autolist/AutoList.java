@@ -71,7 +71,7 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
 
             boolean handled = false;
             if (mActionHandler != null) {
-                handled = mActionHandler.handleAction(o);
+                handled = mActionHandler.beforeHandleAction(o);
             }
 
             if (!handled) {
@@ -89,6 +89,7 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
                         break;
                 }
             }
+            mActionHandler.afterHandleAction(o);
 
             if (mAdapter != null)
                 mAdapter.notifyDataSetChanged();
@@ -113,7 +114,9 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
 
 
     public interface ActionHandler<T> {
-        boolean handleAction(T a);
+        boolean beforeHandleAction(T a);
+         void  afterHandleAction(T a);
+
 
     }
 
