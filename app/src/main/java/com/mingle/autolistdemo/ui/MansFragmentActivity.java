@@ -1,31 +1,28 @@
-package com.mingle.autolistdemo;
+package com.mingle.autolistdemo.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import com.mingle.autolistdemo.R;
+import com.mingle.autolistdemo.ui.fragment.MansFragment;
 
 
+public class MansFragmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        TestA te=new TestA();
-        Log.e("ffff","dddd");
+        setContentView(R.layout.activity_fragment_test);
 
-
-
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.contentFL, new MansFragment()).commitAllowingStateLoss();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_mans, menu);
         return true;
     }
 
@@ -36,11 +33,8 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
+
+        return false;
     }
 }

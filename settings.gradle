@@ -1,1 +1,1 @@
-include ':app', ':autolist'
+include ':app', ':autolist', ':adapter'
