@@ -9,9 +9,9 @@ import com.mingle.autolist.DataObserverEnable;
 import com.mingle.autolist.DataObserverHelper;
 
 
-public class AutoListFragment extends Fragment implements DataObserverEnable {
+public class AutoDataFragment extends Fragment implements DataObserverEnable {
     DataObserverHelper mDataObserverHelper =new DataObserverHelper(this);
-    public AutoListFragment() {
+    public AutoDataFragment() {
     }
     @Override
     public void addDataObserver(DataObserver dataObserver) {
