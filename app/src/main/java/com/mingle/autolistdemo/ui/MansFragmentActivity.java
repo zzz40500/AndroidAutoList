@@ -14,7 +14,7 @@ public class MansFragmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_test);
+        setContentView(R.layout.activity_fragment_mans);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.contentFL, new MansFragment()).commitAllowingStateLoss();
     }

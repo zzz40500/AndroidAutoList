@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.mingle.autolistdemo.R;
-import com.nineoldandroids.animation.AnimatorSet;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main22);
+        setContentView(R.layout.activity_main);
 
 
     }
@@ -31,12 +30,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, MansActivity.class));
 
     }
-
-
-
-
-
-
 
 
 }
