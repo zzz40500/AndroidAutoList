@@ -14,6 +14,8 @@ import com.mingle.utils.BusProvider;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 public class AutoList<T extends Object> extends ArrayList<T> implements DataObserver{
@@ -25,6 +27,32 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
     private RecyclerView.Adapter mRvAdapter;
     private ActionHandler mActionHandler;
 
+    public List<Class> mActionClassList =new ArrayList<>();
+
+
+    public AutoList(int capacity, Class classF) {
+        super(capacity);
+        mActionClassList.add(classF);
+    }
+
+    public AutoList(Class classF) {
+        mActionClassList.add(classF);
+    }
+
+    public AutoList(Collection<? extends T> collection, Class classF) {
+        super(collection);
+        mActionClassList.add(classF);
+    }
+
+    public AutoList apply(Class classF){
+        mActionClassList.add(classF);
+        return  this;
+    }
+
+
+    public List<Class> getActionClassList() {
+        return mActionClassList;
+    }
 
     private void register() {
 
