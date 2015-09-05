@@ -23,5 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.github.zzz40500:CommonAdapter:1.0'
+    compile 'com.github.zzz40500:AndroidAutoList:0.5'
  
 }

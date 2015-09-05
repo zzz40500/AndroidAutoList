@@ -23,7 +23,7 @@ import com.mingle.autolistdemo.ui.ManDetailActivity;
 public class MansFragment extends AutoDataFragment {
 
 
-    private AutoList<ManEntity> mAutoList=new AutoList<ManEntity>();
+    private AutoList<ManEntity> mAutoList=new AutoList<ManEntity>(ManEntity.class);
     private  int mIndex=20;
 
     public MansFragment() {

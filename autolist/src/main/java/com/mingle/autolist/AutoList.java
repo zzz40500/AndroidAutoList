@@ -56,12 +56,12 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
 
     private void register() {
 
-        Log.e(Tag,"register  Bus");
+//        Log.e(Tag,"register  Bus");
         BusProvider.getInstance().register(this);
     }
 
     private void unRegister() {
-        Log.e(Tag,"unRegister Bus");
+//        Log.e(Tag,"unRegister Bus");
         BusProvider.getInstance().unregister(this);
     }
 
@@ -90,6 +90,18 @@ public class AutoList<T extends Object> extends ArrayList<T> implements DataObse
     @Subscribe
     public void action(T o) {
 
+
+        boolean isResponse=false;
+        for (Class item:mActionClassList){
+           if( item.isInstance(o)){
+               isResponse=true;
+
+               break;
+           }
+        }
+        if(!isResponse){
+            return;
+        }
 
         if (o instanceof AutoData) {
             if (TextUtils.isEmpty(((AutoData) o).getIdentifies())) {

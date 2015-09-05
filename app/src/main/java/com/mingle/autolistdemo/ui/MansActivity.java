@@ -16,7 +16,7 @@ import com.mingle.autolistdemo.entity.ManEntity;
 public class MansActivity extends AppCompatActivity {
 
 
-    private AutoList<ManEntity> mAutoList=new AutoList<ManEntity>();
+    private AutoList<ManEntity> mAutoList=new AutoList<>(ManEntity.class);
 
 
     private BaseAdapter adapter;
